@@ -13,12 +13,12 @@ import (
 \t"advent-of-code-2025/utils"
 )
 
-func part1(lines []string) int {{
+func Part1(lines []string) int {{
 \t// TODO: Implement part 1
 \treturn 0
 }}
 
-func part2(lines []string) int {{
+func Part2(lines []string) int {{
 \t// TODO: Implement part 2
 \treturn 0
 }}
@@ -34,8 +34,8 @@ func main() {{
 \t\tlog.Fatal(err)
 \t}}
 
-\tfmt.Println("Part 1:", part1(lines))
-\tfmt.Println("Part 2:", part2(lines))
+\tfmt.Println("Part 1:", Part1(lines))
+\tfmt.Println("Part 2:", Part2(lines))
 }}
 """
 
@@ -49,10 +49,10 @@ func TestPart1(t *testing.T) {{
 \tinput := []string{{
 \t\t// Add test input here
 \t}}
-\tgot := part1(input)
+\tgot := Part1(input)
 \twant := 0 // Update with expected value
 \tif got != want {{
-\t\tt.Errorf("part1() = %d, want %d", got, want)
+\t\tt.Errorf("Part1() = %d, want %d", got, want)
 \t}}
 }}
 
@@ -60,10 +60,10 @@ func TestPart2(t *testing.T) {{
 \tinput := []string{{
 \t\t// Add test input here
 \t}}
-\tgot := part2(input)
+\tgot := Part2(input)
 \twant := 0 // Update with expected value
 \tif got != want {{
-\t\tt.Errorf("part2() = %d, want %d", got, want)
+\t\tt.Errorf("Part2() = %d, want %d", got, want)
 \t}}
 }}
 """

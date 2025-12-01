@@ -6,12 +6,20 @@ import (
 	"advent-of-code-2025/utils"
 )
 
-const expected = 0
-
 func TestPart1(t *testing.T) {
+	expected := 0
 	input := utils.MustReadLines("input_test.txt")
-	got := part1(input)
+	got := Part1(input)
 	if got != expected {
-		t.Errorf("part1() = %d, want %d", got, expected)
+		t.Errorf("Part1() = %d, want %d", got, expected)
+	}
+}
+
+func TestPart2(t *testing.T) {
+	expected := 0
+	input := utils.MustReadLines("input_test.txt")
+	got := Part2(input)
+	if got != expected {
+		t.Errorf("Part2() = %d, want %d", got, expected)
 	}
 }

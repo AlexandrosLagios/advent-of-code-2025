@@ -86,12 +86,12 @@ package main
 
 import "advent-of-code-2025/utils"
 
-func part1(lines []string) int {
+func Part1(lines []string) int {
     // TODO: Implement part 1
     return 0
 }
 
-func part2(lines []string) int {
+func Part2(lines []string) int {
     // TODO: Implement part 2
     return 0
 }
@@ -99,8 +99,8 @@ func part2(lines []string) int {
 func main() {
     utils.Solution{
         Day:   6,
-        Part1: part1,
-        Part2: part2,
+        Part1: Part1,
+        Part2: Part2,
     }.Run()
 }
 ```
@@ -119,9 +119,9 @@ const expected = 0
 
 func TestPart1(t *testing.T) {
     input := utils.MustReadLines("day06/input_test.txt")
-    got := part1(input)
+    got := Part1(input)
     if got != expected {
-        t.Errorf("part1() = %d, want %d", got, expected)
+        t.Errorf("Part1() = %d, want %d", got, expected)
     }
 }
 ```
@@ -152,9 +152,9 @@ const expected = 42 // Update with expected value for test input
 
 func TestPart1(t *testing.T) {
     input := utils.MustReadLines("input_test.txt")
-    got := part1(input)
+    got := Part1(input)
     if got != expected {
-        t.Errorf("part1() = %d, want %d", got, expected)
+        t.Errorf("Part1() = %d, want %d", got, expected)
     }
 }
 ```

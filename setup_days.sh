@@ -15,12 +15,12 @@ import (
 	"advent-of-code-2025/utils"
 )
 
-func part1(lines []string) int {
+func Part1(lines []string) int {
 	// TODO: Implement part 1
 	return 0
 }
 
-func part2(lines []string) int {
+func Part2(lines []string) int {
 	// TODO: Implement part 2
 	return 0
 }
@@ -36,8 +36,8 @@ func main() {
 		log.Fatal(err)
 	}
 
-	fmt.Println("Part 1:", part1(lines))
-	fmt.Println("Part 2:", part2(lines))
+	fmt.Println("Part 1:", Part1(lines))
+	fmt.Println("Part 2:", Part2(lines))
 }
 MAINEOF
 
@@ -52,10 +52,10 @@ func TestPart1(t *testing.T) {
 	input := []string{
 		// Add test input here
 	}
-	got := part1(input)
+	got := Part1(input)
 	want := 0 // Update with expected value
 	if got != want {
-		t.Errorf("part1() = %d, want %d", got, want)
+		t.Errorf("Part1() = %d, want %d", got, want)
 	}
 }
 
@@ -63,10 +63,10 @@ func TestPart2(t *testing.T) {
 	input := []string{
 		// Add test input here
 	}
-	got := part2(input)
+	got := Part2(input)
 	want := 0 // Update with expected value
 	if got != want {
-		t.Errorf("part2() = %d, want %d", got, want)
+		t.Errorf("Part2() = %d, want %d", got, want)
 	}
 }
 TESTEOF
