@@ -7,7 +7,7 @@ import (
 )
 
 func TestPart1(t *testing.T) {
-	expected := 0
+	expected := 1227775554
 	input := utils.MustReadLines("input_test.txt")
 	got := Part1(input)
 	if got != expected {
@@ -16,7 +16,7 @@ func TestPart1(t *testing.T) {
 }
 
 func TestPart2(t *testing.T) {
-	expected := 0
+	expected := 4174379265
 	input := utils.MustReadLines("input_test.txt")
 	got := Part2(input)
 	if got != expected {
