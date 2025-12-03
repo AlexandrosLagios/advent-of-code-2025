@@ -15,7 +15,7 @@ type Solution struct {
 }
 
 const (
-	totalRuns    = 2
+	totalRuns    = 10001
 	warmupRuns   = 1
 	measuredRuns = totalRuns - warmupRuns
 )

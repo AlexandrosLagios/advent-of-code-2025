@@ -13,7 +13,7 @@ func Part1(lines []string) int {
 		go func(r string) {
 			digits := strings.Split(r, "")
 
-			maxCharge := findMaxCharge(digits)
+			maxCharge := findMaxCharge(digits, 2)
 
 			resultChan <- maxCharge
 			//log.Println(digits, maxCharge)
@@ -26,29 +26,55 @@ func Part1(lines []string) int {
 	return total
 }
 
-func findMaxCharge(digits []string) int {
-	maxCharge := 0
-	maxDigit, _ := strconv.Atoi(digits[0])
+func findMaxCharge(digits []string, numberOfDigits int) int {
+	currentCharge := 0
+	currentIndex := 0
+	remaining := numberOfDigits
 
-	for i := 1; i < len(digits); i++ {
-		current, _ := strconv.Atoi(digits[i])
-
-		charge, _ := strconv.Atoi(strconv.Itoa(maxDigit) + digits[i])
-		if charge > maxCharge {
-			maxCharge = charge
-		}
-
-		if current > maxDigit {
-			maxDigit = current
-		}
+	for remaining > 0 && currentIndex < len(digits) {
+		nextMaxDigit, reachedIndex := findNextMaxDigit(digits, currentIndex, remaining)
+		currentCharge = currentCharge*10 + nextMaxDigit
+		currentIndex = reachedIndex + 1
+		remaining--
 	}
 
-	return maxCharge
+	return currentCharge
+}
+
+func findNextMaxDigit(digits []string, index int, remainingDigits int) (int, int) {
+	maxDigit := 0
+	reachedIndex := index
+	for i := index; i < len(digits); i++ {
+		if remainingDigits > len(digits)-i {
+			break
+		}
+		digit, _ := strconv.Atoi(digits[i])
+		if digit > maxDigit {
+			maxDigit = digit
+			reachedIndex = i
+		}
+	}
+	return maxDigit, reachedIndex
 }
 
 func Part2(lines []string) int {
-	// TODO: Implement part 2
-	return 0
+	resultChan := make(chan int, len(lines))
+
+	for _, lineStr := range lines {
+		go func(r string) {
+			digits := strings.Split(r, "")
+
+			maxCharge := findMaxCharge(digits, 12)
+
+			resultChan <- maxCharge
+			//log.Println(digits, maxCharge)
+		}(lineStr)
+	}
+	total := 0
+	for i := 0; i < len(lines); i++ {
+		total += <-resultChan
+	}
+	return total
 }
 
 func main() {
