@@ -7,7 +7,7 @@ import (
 )
 
 func TestPart1(t *testing.T) {
-	expected := 0
+	expected := 357
 	input := utils.MustReadLines("input_test.txt")
 	got := Part1(input)
 	if got != expected {
