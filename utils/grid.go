@@ -79,6 +79,32 @@ func InBoundsInt(x, y, width, height int) bool {
 	return x >= 0 && x < width && y >= 0 && y < height
 }
 
+func CountNeighbors8[T ~string | ~[]rune](grid []T, col, row int, target rune) int {
+	point := Point{X: col, Y: row}
+	height := len(grid)
+	count := 0
+
+	for _, neighbor := range point.Neighbors8() {
+		if neighbor.Y < 0 || neighbor.Y >= height || neighbor.X < 0 {
+			continue
+		}
+		if neighbor.X >= len(grid[neighbor.Y]) {
+			continue
+		}
+		var char rune
+		switch v := any(grid[neighbor.Y]).(type) {
+		case string:
+			char = rune(v[neighbor.X])
+		case []rune:
+			char = v[neighbor.X]
+		}
+		if char == target {
+			count++
+		}
+	}
+	return count
+}
+
 // TransposeGrid transposes a 2D grid
 func TransposeGrid[T any](grid [][]T) [][]T {
 	if len(grid) == 0 {
